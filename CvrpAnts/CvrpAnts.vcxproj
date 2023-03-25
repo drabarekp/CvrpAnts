@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,10 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AntAlgorithm.cpp" />
     <ClCompile Include="CvrpAnts.cpp" />
+    <ClCompile Include="GraphGenerator.cpp" />
     <ClCompile Include="NetworkGraph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AntAlgorithm.h" />
+    <ClInclude Include="AntAlgorithmSolution.h" />
+    <ClInclude Include="GraphGenerator.h" />
     <ClInclude Include="NetworkGraph.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

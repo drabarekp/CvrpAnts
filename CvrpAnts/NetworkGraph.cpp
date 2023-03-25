@@ -14,7 +14,10 @@ NetworkGraph::NetworkGraph(CostMatrix& cost_matrix)
 }
 
 double NetworkGraph::getCost(int i, int j) const {
-	return costs[i][j];
+	if(i < j)
+		return costs[i][j];
+
+	return costs[j][i];
 }
 
 int NetworkGraph::verticesCount() const {
@@ -33,3 +36,18 @@ int NetworkGraph::edgesCount() const {
 
 	return count / 2;
 }
+
+std::string NetworkGraph::toString() const {
+
+	std::string result;
+
+	for (int i = 0; i < verticesCount(); i++) {
+		for (int j = 0; j < verticesCount(); j++) {
+			result.append(std::to_string(getCost(i, j)) + " ");
+		}
+		result.append("\n");
+	}
+
+	return result;
+}
+

@@ -2,10 +2,18 @@
 //
 
 #include <iostream>
+#include "NetworkGraph.h"
+#include "GraphGenerator.h"
+#include "AntAlgorithm.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    GraphGenerator gg;
+    auto ng = gg.generateUniformDistributionCostsGraph(20, 9999);
+    std::vector<double> demands = { 1, 2, 3, 2, 1, 1, 2, 3, 4, 5, 3, 2, 3, 4, 4, 3, 2, 1, 1, 2 };
+    AntAlgorithm aa(16.0, 200, ng, demands);
+    aa.basicAntCvrp(0.0, 1.0, 0.1, 9999, 100000);
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
